@@ -248,7 +248,7 @@ endforeach(subdir ${NANA_SOURCE_SUBDIRS})
 
 include_directories(${NANA_INCLUDE_DIR})
 add_library(${PROJECT_NAME} ${sources} )
-target_link_libraries(${PROJECT_NAME} ${NANA_LINKS}) 
+target_link_libraries(${PROJECT_NAME} ${NANA_LINKS} iconv)
 
  #  Headers: use INCLUDE_DIRECTORIES
  #  Libraries: use FIND_LIBRARY and link with the result of it (try to avoid LINK_DIRECTORIES)
