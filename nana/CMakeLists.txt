@@ -126,7 +126,9 @@ endif(CMAKE_COMPILER_IS_GNUCXX OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
 # enable static linkage     # GNU || CLang not MinGW
 if(CMAKE_COMPILER_IS_GNUCXX OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang") #  AND NOT MINGW
     # set(CMAKE_EXE_LINKER_FLAGS "-static-libgcc -static-libstdc++  -pthread")
-    set(NANA_LINKS "${NANA_LINKS} -static-libgcc -static-libstdc++  -pthread")
+    if (NOT APPLE)
+      set(NANA_LINKS "${NANA_LINKS} -static-libgcc -static-libstdc++  -pthread")
+    endif (NOT APPLE)
     # message("Setting NANA_LINKS to -static-libgcc -static-libstdc++  -pthread or ${NANA_LINKS}")
     if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 5.3)
 	                                                                     # IS_GNUCXX < 5.3
@@ -136,13 +138,6 @@ if(CMAKE_COMPILER_IS_GNUCXX OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang") #  AN
     endif(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 5.3)
     
 endif(CMAKE_COMPILER_IS_GNUCXX OR "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang") #  AND NOT MINGW
-
-
-if (APPLE AND "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")                    # APPLE Clang
-  # set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libstdc++")
-  set(NANA_LINKS "${NANA_LINKS} -stdlib=libstdc++")
-endif ()
-
 
 ############# Optional libraries
 
