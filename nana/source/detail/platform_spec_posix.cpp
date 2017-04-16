@@ -21,6 +21,7 @@
 
 #include <X11/Xlocale.h>
 #include <locale>
+#include <clocale>
 #include <map>
 #include <set>
 #include <algorithm>
