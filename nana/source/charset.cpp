@@ -21,6 +21,7 @@
 #include <clocale>
 #include <cstring>	//Added by Pr0curo(pr#98)
 #include <memory>
+#include <locale>
 
 //GCC 4.7.0 does not implement the <codecvt> and codecvt_utfx classes
 #ifndef STD_CODECVT_NOT_SUPPORTED
